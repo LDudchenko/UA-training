@@ -10,7 +10,6 @@ public class Model {
         lowerLimit = 0;
         higherLimit = 100;
         hiddenNumber = (int) ((Math.random() * (higherLimit - lowerLimit)) + lowerLimit);
-        System.out.println(hiddenNumber);
         attempts = new LinkedHashSet<>();
     }
 
