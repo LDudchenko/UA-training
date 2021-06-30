@@ -1,4 +1,3 @@
-import com.mysql.cj.protocol.Message;
 
 public class View {
     public static final String INPUT_NUMBER = "Enter an integer in the range of %d and %d: ";
