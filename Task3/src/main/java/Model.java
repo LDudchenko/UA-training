@@ -8,7 +8,6 @@ public class Model {
 
     private LinkedHashSet<Integer> attempts = new LinkedHashSet<>();
 
-    // [1-99]
     public void setHiddenNumber(){
         hiddenNumber = (int)Math.ceil(Math.random()*
                 (higherLimit - lowerLimit - 1) + lowerLimit);
