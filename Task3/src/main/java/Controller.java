@@ -12,7 +12,11 @@ public class Controller {
     public void processUser() {
         int number;
         int answer;
+
         Scanner sc = new Scanner(System.in);
+
+        model.setPrimaryLimits(GlobalConstants.PRIMARY_MIN_BARRIER, GlobalConstants.PRIMARY_MAX_BARRIER);
+        model.setHiddenNumber();
 
         view.printMessage(View.GREETING);
 
@@ -26,6 +30,7 @@ public class Controller {
             }
             view.printMessage(View.STATISTIC + model.getAttempts() + "\n");
         } while (answer != 0);
+
         view.printMessageAndParam(View.SUCCESSFUL_INPUT, number);
     }
 
@@ -35,7 +40,7 @@ public class Controller {
         while (true) {
             if (sc.hasNextInt()) {
                 nextInt = sc.nextInt();
-                if (nextInt >= model.getLowerLimit() && nextInt <= model.getHigherLimit()) {
+                if (nextInt > model.getLowerLimit() && nextInt < model.getHigherLimit()) {
                     return nextInt;
                 } else {
                     view.printMessage(View.OUT_OF_BOUNDS);
