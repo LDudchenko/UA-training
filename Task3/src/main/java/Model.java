@@ -3,21 +3,19 @@ import java.util.LinkedHashSet;
 public class Model {
     private int hiddenNumber;
     private int lowerLimit;
-    private int higherLimit;
-    private LinkedHashSet<Integer> attempts;
 
-    public Model() {
-        lowerLimit = 0;
-        higherLimit = 100;
-        hiddenNumber = (int) ((Math.random() * (higherLimit - lowerLimit)) + lowerLimit);
-        attempts = new LinkedHashSet<>();
+    private int higherLimit;
+
+    private LinkedHashSet<Integer> attempts = new LinkedHashSet<>();
+
+    public void setHiddenNumber(){
+        hiddenNumber = (int)Math.ceil(Math.random()*
+                (higherLimit - lowerLimit - 1) + lowerLimit);
     }
 
-    public Model(int lowerLimit, int higherLimit) {
-        this.lowerLimit = lowerLimit;
-        this.higherLimit = higherLimit;
-        hiddenNumber = (int) ((Math.random() * (higherLimit - lowerLimit)) + lowerLimit);
-        attempts = new LinkedHashSet<>();
+    public void setPrimaryLimits(int minBarrier, int maxBarrier){
+        this.lowerLimit = minBarrier;
+        this.higherLimit = maxBarrier;
     }
 
     public int getLowerLimit() {
@@ -26,6 +24,11 @@ public class Model {
 
     public int getHigherLimit() {
         return higherLimit;
+    }
+
+
+    public int getHiddenNumber() {
+        return hiddenNumber;
     }
 
     public String getAttempts() {
