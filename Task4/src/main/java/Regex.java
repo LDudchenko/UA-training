@@ -3,7 +3,7 @@
  */
 public class Regex {
     /**
-     * The ragex for last name
+     * The regex for last name
      * "Ivan"
      */
     public static final String REGEX_LASTNAME = "^([А-Я]{1}[а-яё]{1,35}|[A-Z]{1}[a-z]{1,40})$";
