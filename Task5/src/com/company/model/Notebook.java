@@ -24,7 +24,7 @@ public class Notebook {
      * Method for getting list of notes
      * @return list of notes
      */
-    public String getNotes() {
-        return notes.toString();
+    public List<Note> getNotes() {
+        return notes;
     }
 }

@@ -30,7 +30,7 @@ public class UtilityController {
     public String inputStringWithScanner(String message, String regex){
         String nextString = "";
 
-        view.printMessage(message);
+        view.printMessage(View.bundle.getString(message));
 
         while(sc.hasNext()){
             nextString = sc.nextLine();
@@ -38,7 +38,7 @@ public class UtilityController {
             if(isCorrect) {
                 break;
             } else{
-                view.printMessage(WRONG_INPUT + "\n"+REPEATED_INPUT);
+                view.printMessage(View.bundle.getString(WRONG_INPUT) + View.bundle.getString(REPEATED_INPUT));
             }
         }
         return nextString;

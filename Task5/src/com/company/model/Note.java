@@ -388,7 +388,7 @@ public class Note {
      * Method for forming full name like last name + the first letter of name
      */
     public void formLastNameAndFirstLetterOfName(){
-        this.fullName = this.lastName + " " + this.name.charAt(0);
+        this.fullName = this.lastName + " " + this.name.charAt(0)+".";
     }
 
     /**

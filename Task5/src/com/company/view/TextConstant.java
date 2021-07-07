@@ -8,6 +8,8 @@ public interface TextConstant {
      * String constants
      */
     String INPUT_LASTNAME = "input.lastname";
+    String INPUT_NAME = "input.name";
+    String INPUT_PATRONYMIC = "input.patronymic";
     String INPUT_LOGIN = "input.login";
     String WRONG_INPUT = "wrong.input";
     String ENTERED_LASTNAME = "entered.lastname";

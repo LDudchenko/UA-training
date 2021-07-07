@@ -4,6 +4,7 @@ import com.company.model.Note;
 import com.company.model.Notebook;
 import com.company.view.View;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /**
@@ -63,5 +64,7 @@ public class Controller {
 //        view.printMessage(message);
 
         notebook.addNote(note);
+        note.formLastNameAndFirstLetterOfName();
+        System.out.println(notebook.getNotes().get(notebook.getNotes().size()-1).getLastName()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getName()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getPatronymic()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getFullName()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getLogin());
     }
 }
