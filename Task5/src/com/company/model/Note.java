@@ -4,6 +4,7 @@ package com.company.model;
  * Created by Dudchenko Liudmila on 05.07.2021
  */
 public class Note {
+
     /** Field for saving last name */
     private String lastName;
 
@@ -82,7 +83,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#index}
-     * @param index
+     * @param index - postcode
      */
     public void setIndex(String index) {
         this.index = index;
@@ -98,7 +99,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#city}
-     * @param city
+     * @param city - city where user lives
      */
     public void setCity(String city) {
         this.city = city;
@@ -114,7 +115,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#street}
-     * @param street
+     * @param street - street where user lives
      */
     public void setStreet(String street) {
         this.street = street;
@@ -130,7 +131,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#home}
-     * @param home
+     * @param home - number of home
      */
     public void setHome(String home) {
         this.home = home;
@@ -146,7 +147,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#flat}
-     * @param flat
+     * @param flat - number of flat
      */
     public void setFlat(String flat) {
         this.flat = flat;
@@ -154,7 +155,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#name}
-     * @param name
+     * @param name - name of user
      */
     public void setName(String name) {
         this.name = name;
@@ -170,7 +171,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#patronymic}
-     * @param patronymic
+     * @param patronymic - patronymic of user
      */
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
@@ -186,7 +187,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#fullName}
-     * @param fullName
+     * @param fullName - full name of user which consists of last name and first letter of name
      */
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -202,7 +203,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#comment}
-     * @param comment
+     * @param comment - additional comment of user
      */
     public void setComment(String comment) {
         this.comment = comment;
@@ -218,7 +219,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#group}
-     * @param group
+     * @param group - group of people to which user is related to
      */
     public void setGroup(Group group) {
         this.group = group;
@@ -234,7 +235,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#homePhone}
-     * @param homePhone
+     * @param homePhone - namber of home phone
      */
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
@@ -250,7 +251,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#mobilePhone}
-     * @param mobilePhone
+     * @param mobilePhone - number of mobile phone
      */
     public void setMobilePhone(String mobilePhone) {
         this.mobilePhone = mobilePhone;
@@ -266,7 +267,7 @@ public class Note {
 
     /**
      * Method for setting value of field{@link Note#additionalMobilePhone}
-     * @param additionalMobilePhone
+     * @param additionalMobilePhone - second mob
      */
     public void setAdditionalMobilePhone(String additionalMobilePhone) {
         this.additionalMobilePhone = additionalMobilePhone;
@@ -397,7 +398,6 @@ public class Note {
     public void formFullAdress(){
         this.fullAddress = index+", "+city+", "+street+", "+home+", "+flat;
     }
-
 }
 
 /**

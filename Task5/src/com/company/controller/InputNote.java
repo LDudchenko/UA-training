@@ -18,12 +18,21 @@ public class InputNote {
     private Scanner sc;
     private Note note;
 
+    /**
+     * Constructor
+     * @param view - view
+     * @param sc - scanner
+     * @param note - note
+     */
     public InputNote(View view, Scanner sc, Note note){
         this.view = view;
         this.sc = sc;
         this.note = note;
     }
 
+    /**
+     * Method for getting information
+     */
     public void inputNote() {
         UtilityController utilityController =
                 new UtilityController(sc, view, note);
@@ -42,7 +51,7 @@ public class InputNote {
                 (INPUT_PATRONYMIC, str));
 
         note.setLogin(utilityController.inputStringWithScanner
-                (INPUT_LOGIN, REGEX_NICKNAME));
+                        (INPUT_LOGIN, REGEX_NICKNAME));
     }
 
 }

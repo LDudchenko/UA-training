@@ -42,29 +42,12 @@ public class Controller {
      */
     public void processUser(){
         Scanner sc = new Scanner(System.in);
-        String lastName;
-        String login;
-        String message;
 
         InputNote inputNote = new InputNote(view, sc, note);
         inputNote.inputNote();
 
-//        view.printMessage(view.TextConstants.INPUT_LASTNAME);
-//        lastName = inputStringWithScanner(sc, controller.Regex.REGEX_LASTNAME);
-//        note.setLastName(lastName);
-//
-//        view.printMessage(view.TextConstants.INPUT_LOGIN);
-//        login = inputStringWithScanner(sc, controller.Regex.REGEX_NICKNAME);
-//        note.setLogin(login);
-//
-//        message = view.concatenationStrings(view.TextConstants.ENTERED_LASTNAME, note.getLastName());
-//        view.printMessage(message);
-//
-//        message = view.concatenationStrings(view.TextConstants.ENTERED_LOGIN, note.getLogin());
-//        view.printMessage(message);
-
         notebook.addNote(note);
         note.formLastNameAndFirstLetterOfName();
-        System.out.println(notebook.getNotes().get(notebook.getNotes().size()-1).getLastName()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getName()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getPatronymic()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getFullName()+"\n"+notebook.getNotes().get(notebook.getNotes().size()-1).getLogin());
+        System.out.println(note.getLastName()+"\n"+note.getName()+"\n"+note.getPatronymic()+"\n"+note.getFullName()+"\n"+note.getFullName());
     }
 }
