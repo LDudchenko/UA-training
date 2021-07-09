@@ -6,7 +6,6 @@ import com.company.view.View;
 import java.util.Scanner;
 
 import static com.company.controller.RegexContainer.*;
-//import static com.company.controller.RegexContainer.REGEX_LOGIN;
 import static com.company.view.TextConstant.*;
 import static com.company.view.TextConstant.INPUT_LOGIN;
 
@@ -18,12 +17,6 @@ public class InputNote {
     private Scanner sc;
     private Note note;
 
-    /**
-     * Constructor
-     * @param view - view
-     * @param sc - scanner
-     * @param note - note
-     */
     public InputNote(View view, Scanner sc, Note note){
         this.view = view;
         this.sc = sc;
@@ -35,7 +28,7 @@ public class InputNote {
      */
     public void inputNote() {
         UtilityController utilityController =
-                new UtilityController(sc, view, note);
+                new UtilityController(sc, view);
         boolean isUkrainian = String.valueOf(View.bundle.getLocale()).equals("ua");
 
         String str = isUkrainian ? REGEX_LASTNAME_UKR : REGEX_LASTNAME_ENG;

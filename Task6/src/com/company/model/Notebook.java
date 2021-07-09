@@ -12,18 +12,10 @@ public class Notebook {
      */
     private List<Note> notes = new ArrayList<>();
 
-    /**
-     * Method for adding notes
-     * @param note
-     */
     public void addNote(Note note){
         notes.add(note);
     }
 
-    /**
-     * Method for getting list of notes
-     * @return list of notes
-     */
     public List<Note> getNotes() {
         return notes;
     }

@@ -1,6 +1,5 @@
 package com.company.controller;
 
-import com.company.model.Note;
 import com.company.view.View;
 import java.util.Scanner;
 
@@ -13,20 +12,12 @@ import static com.company.view.TextConstant.WRONG_INPUT;
 public class UtilityController {
     private Scanner sc;
     private View view;
-    private Note note;
 
-    public UtilityController(Scanner scanner, View view, Note note){
+    public UtilityController(Scanner scanner, View view){
         this.sc = scanner;
         this.view = view;
-        this.note = note;
     }
 
-    /**
-     * Method for readind data which user enter
-     * @param message
-     * @param regex
-     * @return
-     */
     public String inputStringWithScanner(String message, String regex){
         String nextString = "";
 

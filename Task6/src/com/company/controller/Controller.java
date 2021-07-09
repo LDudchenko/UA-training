@@ -4,7 +4,6 @@ import com.company.model.Note;
 import com.company.model.Notebook;
 import com.company.view.View;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /**
@@ -12,25 +11,10 @@ import java.util.Scanner;
  */
 public class Controller {
 
-    /**
-     * Field for note
-     */
     private Note note;
-    /**
-     * Field for view
-     */
     private View view;
-    /**
-     * Field for notebook
-     */
     private Notebook notebook;
 
-    /**
-     * Constructor
-     * @param note
-     * @param view
-     * @param notebook
-     */
     public Controller(Note note, View view, Notebook notebook){
         this.note = note;
         this.view = view;
