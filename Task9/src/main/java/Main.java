@@ -26,10 +26,12 @@ public class Main {
         Optional min1 = IntStream.of(arr).boxed().min(Integer::compare);
         IntSummaryStatistics min2 = IntStream.of(arr).summaryStatistics();
         Optional min3 = IntStream.of(arr).boxed().collect(Collectors.minBy(Integer::compare));
+        Map<Integer, Integer> minIndexAndValue = IntStream.range(0, arr.length).filter(x->min2.getMin()==arr[x]).boxed().collect(Collectors.toMap(x->x, x->arr[x]));
 
         min1.ifPresent(System.out::println);
         System.out.println(min2.getMin());
         min3.ifPresent(System.out::println);
+        minIndexAndValue.forEach((k,v)-> System.out.println(k+" "+v));
         System.out.println();
 
         //Посчитать количество элементов равных нулю
