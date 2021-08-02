@@ -1,8 +1,8 @@
-package org.example.sweater.controller;
+package org.example.cinema.controller;
 
-import org.example.sweater.entity.Role;
-import org.example.sweater.entity.User;
-import org.example.sweater.repos.UserRepo;
+import org.example.cinema.domain.Role;
+import org.example.cinema.domain.User;
+import org.example.cinema.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +34,7 @@ public class Registation {
         user.setRoles(Collections.singleton(Role.USER));
         userRepo.save(user);
 
-        return "redirect/:main";
+        return "redirect:/login";
     }
 
 }

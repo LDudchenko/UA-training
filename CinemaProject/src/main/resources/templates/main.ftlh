@@ -5,4 +5,5 @@
     <div>
         <@l.logout />
     </div>
+    <h4>Hello, user</h4>
 </@c.page>

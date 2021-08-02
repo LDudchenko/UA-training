@@ -1,4 +1,4 @@
-package org.example.sweater;
+package org.example.cinema;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

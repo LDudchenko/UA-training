@@ -1,4 +1,4 @@
-package org.example.sweater.entity;
+package org.example.cinema.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 

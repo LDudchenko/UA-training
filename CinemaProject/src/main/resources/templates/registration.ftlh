@@ -6,6 +6,6 @@ Add new user
 <#if message??>
     ?{message}
 </#if>
-<@l.login "/registration"/>
+<@l.login "/registration" false/>
 
 </@c.page>

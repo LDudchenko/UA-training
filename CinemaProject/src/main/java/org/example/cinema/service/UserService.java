@@ -1,6 +1,6 @@
-package org.example.sweater.service;
+package org.example.cinema.service;
 
-import org.example.sweater.repos.UserRepo;
+import org.example.cinema.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,8 +1,8 @@
-package org.example.sweater.controller;
+package org.example.cinema.controller;
 
-import org.example.sweater.entity.Role;
-import org.example.sweater.entity.User;
-import org.example.sweater.repos.UserRepo;
+import org.example.cinema.domain.Role;
+import org.example.cinema.domain.User;
+import org.example.cinema.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
