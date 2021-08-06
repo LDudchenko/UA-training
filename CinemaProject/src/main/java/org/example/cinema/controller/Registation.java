@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class Registation {
@@ -23,7 +24,7 @@ public class Registation {
 
     @PostMapping("/registration")
     public String addUser( User user, Map<String, Object> model){
-        User userFromDb = userRepo.findUserByUsername(user.getUsername());
+        Optional<User> userFromDb = userRepo.findUserByUsername(user.getUsername());
 
        if(userFromDb != null){
            model.put("message", "User exists!");

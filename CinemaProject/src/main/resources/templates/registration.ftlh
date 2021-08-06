@@ -4,8 +4,8 @@
 <@c.page>
 Add new user
 <#if message??>
-    ?{message}
+    ${message}
 </#if>
-<@l.login "/registration" false/>
+<@l.login "/registration" false false false/>
 
 </@c.page>

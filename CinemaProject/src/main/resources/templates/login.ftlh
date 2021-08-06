@@ -1,7 +1,9 @@
 <#import "parts/common.ftlh" as c>
 <#import "parts/login.ftlh" as l>
+<#import "/spring.ftl" as spring>
+
 
 <@c.page>
-Login user
-<@l.login "/login" true/>
+<@spring.message "login"/>
+<@l.login "/login" true logout error/>
 </@c.page>
