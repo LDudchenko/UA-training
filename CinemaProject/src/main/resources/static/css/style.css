@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.label{
+    font-weight: 700;
+}
+
+.note{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.item{
+    width: 46%;
+    align-items: center;
+    border: 2px solid #45637d;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.hall{
+    width: 23%;
+    align-items: center;
+    border: 2px solid #45637d;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.hall .btn-ref{
+    width: 50%;
+}
+
+.item img{
+    display: block;
+    width: 60%;
+    margin: auto;
+    height: 500px;
+}
+
+.btn-ref {
+    display: block; /* Строчно-блочный элемент */
+    background: #45637d; /* Серый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 5px 5px; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    color: white;
+    width: 23%;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.red{
+    background-color: #FF3333;
+}

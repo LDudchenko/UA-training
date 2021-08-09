@@ -2,6 +2,7 @@
 <#macro login path isRegisterForm logout error>
 <div class="container">
     <div class="row">
+        <div class="col-md-3"></div>
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default" style="margin-top:45px">
                 <div class="panel-heading">
@@ -22,7 +23,7 @@
                             <input type="text" class="form-control" id="username" placeholder=<@spring.message "username"/>
                                    name="username">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-2">
                             <label for="password"><@spring.message "password"/></label>
                             <input type="password" class="form-control" id="password" placeholder=<@spring.message "password"/>
                                    name="password">
@@ -39,7 +40,7 @@
 <#macro logout>
       <form action="/logout" method="post">
                 <input type="hidden" name="_csrf" value="${_csrf.token}">
-                <button class="btn btn-primary">Sign Out</button>
+                <button class="btn btn-primary"><@spring.message "sign.out"/></button>
       </form>
 </#macro>
 
