@@ -1,25 +1,21 @@
 package org.example.cinema.controller;
 
-import lombok.SneakyThrows;
-import org.example.cinema.domain.Film;
 import org.example.cinema.domain.Hall;
-import org.example.cinema.repos.FilmRepo;
 import org.example.cinema.repos.HallRepo;
+import org.example.cinema.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/halls")
 public class HallController {
     @Autowired
     private HallRepo hallRepo;
+
+    @Autowired
+    private HallService hallService;
 
     @GetMapping
     public String hallList(Model model){
@@ -43,20 +39,13 @@ public class HallController {
     public String addHall(@RequestParam String name,
                           @RequestParam int numOfRows,
                           @RequestParam int numOfSeatsAtRow){
-        Hall hall = new Hall();
-
-        hall.setName(name);
-        hall.setNumOfRows(numOfRows);
-        hall.setNumOfSeatsAtRow(numOfSeatsAtRow);
-
-        hallRepo.save(hall);
-
+        hallService.add(name, numOfRows, numOfSeatsAtRow);
         return "redirect:/halls";
     }
 
     @GetMapping("/delete/{hall}")
     public String hallDelete(@PathVariable Hall hall){
-        hallRepo.deleteById(hall.getId());
+        hallService.delete(hall);
         return "redirect:/halls";
     }
 
@@ -67,12 +56,7 @@ public class HallController {
             @RequestParam int numOfSeatsAtRow,
             @RequestParam("hallId") Hall hall){
 
-        hall.setName(name);
-        hall.setNumOfRows(numOfRows);
-        hall.setNumOfSeatsAtRow(numOfSeatsAtRow);
-
-        hallRepo.save(hall);
-
+        hallService.save(name, numOfRows, numOfSeatsAtRow, hall);
         return "redirect:/halls";
     }
 }

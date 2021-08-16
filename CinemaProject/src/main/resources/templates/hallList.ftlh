@@ -3,9 +3,9 @@
 
 <@c.page>
       <h1><@spring.message "hall.list"/></h1>
-      <div class="wrapper">
+      <div class="row">
                 <#list halls as hall>
-                    <div class="hall">
+                    <div class="col-3 hall" style="border: 2px solid #45637d;">
                         <label class="label"><@spring.message "name"/>: </label>${hall.name}<br/>
                         <label class="label"><@spring.message "numOfRows"/>: </label>${hall.numOfRows}<br/>
                         <label class="label"><@spring.message "numOfSeatsAtRow"/>: </label>${hall.numOfSeatsAtRow}<br/>

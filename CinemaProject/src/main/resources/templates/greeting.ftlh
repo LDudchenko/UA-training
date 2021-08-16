@@ -1,17 +1,35 @@
 <#import "parts/common.ftlh" as c>
 <#import "/spring.ftl" as spring>
+<#import "parts/pager.ftlh" as p>
 
 <@c.page>
-    <h1><@spring.message "schedule"/></h1>
-    <div class="wrapper">
-        <#list screenings as screening>
-            <div class="item">
-            <a href="${screening.film.id}/${screening.id}">
-                    <h2>${screening.film.name}</h2>
-            </a>
-                 <img src="/img/${screening.film.filename}">
-                 <p class="note"><@spring.message "date.time"/>: ${screening.screeningDateTime}</p>
-            </div>
-        </#list>
-    </div>
+    <@p.pager url page />
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"><@spring.message "name"/></th>
+          <th scope="col"><@spring.message "date.time"/></th>
+          <th scope="col"><@spring.message "free.seats"/></th>
+        </tr>
+      </thead>
+      <tbody>
+        <#list page.content as screening>
+            <tr>
+              <th scope="row">
+                <a href="${screening.film.id}/${screening.id}">${screening.id}</a>
+              </th>
+              <td>
+                <#if lci==true>
+                    ${screening.film.name_en}
+                <#else>
+                    ${screening.film.name}
+                </#if>
+               </td>
+              <td> ${screening.screeningDateTime.toLocalDate()} ${screening.screeningDateTime.toLocalTime()}</td>
+              <td> ${screening.numOfFreeSeats()}</td>
+            </tr>
+         </#list>
+      </tbody>
+    </table>
 </@c.page>

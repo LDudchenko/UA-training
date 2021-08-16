@@ -17,7 +17,7 @@
                                 <option disabled><@spring.message "choose.film"/></option>
                                      <option selected value="${screening.film.id}">${screening.film.name}</option>
                                     <#list films as film>
-                                         <option value="${film.id}">${film.name}</option>
+                                         <option value="${film.id}">${film.name}/${film.name_en}</option>
                                     </#list>
                                 </select>
                             </p>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="screeningDate"><@spring.message "date"/></label>
-                            <input type="date" name="screeningDate" class="form-control" value="${date}" min="2021-08-15" max="2021-08-22">
+                            <input type="date" name="screeningDate" class="form-control" value="${date}" min="${startDate}" max="${endDate}">
                         </div>
                         <input type="hidden" value="${screening.id}" name="screeningId">
                         <input type="hidden" value="${_csrf.token}" name="_csrf">

@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="screeningDate"><@spring.message "date"/></label>
-                            <input type="date" name="screeningDate" class="form-control" min="2021-08-15" max="2021-08-22" required>
+                            <input type="date" name="screeningDate" class="form-control" min="${startDate}" max="${endDate}" required>
                         </div>
                         <input type="hidden" value="${_csrf.token}" name="_csrf">
                         <button type="submit" class="btn btn-primary"><@spring.message "save"/></button>

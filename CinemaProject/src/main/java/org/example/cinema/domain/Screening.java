@@ -8,7 +8,7 @@ import java.util.List;
 public class Screening {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "film_id")
@@ -18,12 +18,32 @@ public class Screening {
     @JoinColumn(name = "hall_id")
     private Hall hall;
 
-    @OneToMany(mappedBy = "screening", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy = "screening", fetch=FetchType.EAGER)
     private List<Ticket> tickets;
+
+    private Integer numOfFreeSeats;
 
     private LocalDateTime screeningDateTime;
 
-    public long getId() {
+    public int numOfFreeSeats(){
+        numOfFreeSeats = hall.getNumOfRows()*hall.getNumOfSeatsAtRow() - tickets.size();
+        return numOfFreeSeats;
+    }
+
+    public boolean isBusySeat(int row, int seat){
+        for(Ticket ticket : tickets){
+            if(ticket.getNumberOfrow() == row && ticket.getSeat() == seat){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
         return id;
     }
 
@@ -61,5 +81,14 @@ public class Screening {
 
     public void setScreeningDateTime(LocalDateTime screeningDateTime) {
         this.screeningDateTime = screeningDateTime;
+    }
+
+
+    public Integer getNumOfFreeSeats() {
+        return numOfFreeSeats;
+    }
+
+    public void setNumOfFreeSeats(Integer numOfFreeSeats) {
+        this.numOfFreeSeats = numOfFreeSeats;
     }
 }

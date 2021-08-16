@@ -3,15 +3,12 @@
 
 <@c.page>
       <h1> <@spring.message "film.list"/></h1>
-      <div class="wrapper">
+      <div class="row">
                 <#list films as film>
-                    <div class="item">
+                    <div class="col-6 item" style="border: 2px solid #45637d;">
                         <p>${film.name}/${film.name_en}</p>
                         <p>${film.description}</p>
                         <p>${film.description_en}</p>
-                        <#if film.filename??>
-                                <img src="/img/${film.filename}">
-                        </#if>
                         <a href="/films/${film.id}" class="btn-ref"><@spring.message "edit"/></a>
                     </div>
                 </#list>

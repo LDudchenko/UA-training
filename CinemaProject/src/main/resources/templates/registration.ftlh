@@ -17,8 +17,7 @@
                         <input name="${_csrf.parameterName}" value="${_csrf.token}" type="hidden">
                         <div class="form-group">
                             <label for="username"><@spring.message "username"/></label>
-                            <input type="text" class="form-control ${(usernameError??)?string('is-valid','')}" id="username" placeholder=<@spring.message "username"/>
-                                   value="<#if user??>{user.username}</#if>" name="username">
+                            <input type="text" class="form-control" id="username" placeholder=<@spring.message "username"/> name="username" required>
                             <#if usernameError??>
                                 <div class="invalid-feedback">
                                     ${usernameError}
@@ -27,9 +26,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="password"><@spring.message "password"/></label>
-                            <input type="password" class="form-control" id="password" placeholder=<@spring.message "password"/>
-                                   name="password">
-
+                            <input type="password" class="form-control" id="password" placeholder=<@spring.message "password"/> name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary"><@spring.message "registration"/></button>
                     </form>

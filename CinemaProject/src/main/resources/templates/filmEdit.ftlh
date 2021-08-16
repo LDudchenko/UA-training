@@ -12,28 +12,24 @@
                 <div class="panel-body">
                     <form action="/films" enctype="multipart/form-data" method="post">
                         <div class="form-group mb-2">
-                            <label for="name"><@spring.message "name"/></label>
+                            <label for="name"><@spring.message "name.ua"/></label>
                             <input type="text"  class="form-control" name="name" value="${film.name}">
                         </div>
                         <div class="form-group mb-2">
-                            <label for="name_en"><@spring.message "name"/></label>
+                            <label for="name_en"><@spring.message "name.en"/></label>
                             <input type="text" class="form-control" name="name_en" value="${film.name_en}">
                         </div>
                         <div class="form-group mb-2">
-                            <label for="description"><@spring.message "description"/></label>
+                            <label for="description"><@spring.message "description.ua"/></label>
                             <textarea name="description" class="form-control" rows="4" cols="50">
                                 ${film.description}
                             </textarea>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="description_en"><@spring.message "description"/></label>
+                            <label for="description_en"><@spring.message "description.en"/></label>
                             <textarea name="description_en" class="form-control" rows="4" cols="50">
                                 ${film.description_en}
                             </textarea>
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="file"><@spring.message "file"/></label>
-                            <input type="file" name="file" value="${film.filename}">
                         </div>
                         <input type="hidden" value="${film.id}" name="filmId">
                         <input type="hidden" value="${_csrf.token}" name="_csrf">

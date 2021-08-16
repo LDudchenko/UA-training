@@ -3,6 +3,7 @@ package org.example.cinema.controller;
 import lombok.SneakyThrows;
 import org.example.cinema.domain.Film;
 import org.example.cinema.repos.FilmRepo;
+import org.example.cinema.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -17,14 +18,14 @@ import java.util.UUID;
 @RequestMapping("/films")
 public class FilmController {
     @Autowired
-    private FilmRepo filmRepo;
+    private FilmService filmService;
 
     @Value("${upload.path}")
     private String uploadPath;
 
     @GetMapping
     public String filmList(Model model){
-        model.addAttribute("films", filmRepo.findAll());
+        model.addAttribute("films", filmService.findAll());
         return "filmList";
     }
 
@@ -45,35 +46,14 @@ public class FilmController {
     public String addFilm(@RequestParam String name,
                           @RequestParam String description,
                           @RequestParam String name_en,
-                          @RequestParam String description_en,
-                          @RequestParam("file") MultipartFile file){
-        Film film = new Film();
-
-        if(file!=null){
-            File uploadDir = new File(uploadPath);
-            if(!uploadDir.exists()){
-                uploadDir.mkdir();
-            }
-            String uuidFile = UUID.randomUUID().toString();
-            String resultFilename = uuidFile + "." + file.getOriginalFilename();
-
-            file.transferTo(new File(uploadPath+"/"+resultFilename));
-
-            film.setFilename(resultFilename);
-        }
-
-        film.setName(name);
-        film.setName_en(name_en);
-        film.setDescription(description);
-        film.setDescription_en(description_en);
-        filmRepo.save(film);
-
+                          @RequestParam String description_en){
+        filmService.add(name, description, name_en, description_en);
         return "redirect:/films";
     }
 
     @GetMapping("/delete/{film}")
     public String filmDelete(@PathVariable Film film){
-        filmRepo.deleteById(film.getId());
+        filmService.delete(film);
         return "redirect:/films";
     }
 
@@ -84,30 +64,9 @@ public class FilmController {
             @RequestParam String description,
             @RequestParam String name_en,
             @RequestParam String description_en,
-            @RequestParam("filmId") Film film,
-            @RequestParam("file") MultipartFile file){
-        film.setName(name);
-        film.setName_en(name_en);
-        film.setDescription(description);
-        film.setDescription_en(description_en);
-
-        if(file!=null){
-            File uploadDir = new File(uploadPath);
-            if(!uploadDir.exists()){
-                uploadDir.mkdir();
-            }
-            String uuidFile = UUID.randomUUID().toString();
-            String resultFilename = uuidFile + "." + file.getOriginalFilename();
-
-            file.transferTo(new File(uploadPath+"/"+resultFilename));
-
-            film.setFilename(resultFilename);
-        }
-
-        filmRepo.save(film);
+            @RequestParam("filmId") Film film){
+        filmService.save(name, description, name_en, description_en, film);
 
         return "redirect:/films";
     }
-
-
 }

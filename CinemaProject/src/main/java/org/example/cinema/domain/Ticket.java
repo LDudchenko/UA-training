@@ -7,9 +7,41 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "screening_id")
     private Screening screening;
-    private int row;
+    private int numberOfrow;
     private int seat;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Screening getScreening() {
+        return screening;
+    }
+
+    public void setScreening(Screening screening) {
+        this.screening = screening;
+    }
+
+    public int getNumberOfrow() {
+        return numberOfrow;
+    }
+
+    public void setNumberOfrow(int numberOfrow) {
+        this.numberOfrow = numberOfrow;
+    }
+
+    public int getSeat() {
+        return seat;
+    }
+
+    public void setSeat(int seat) {
+        this.seat = seat;
+    }
 }
