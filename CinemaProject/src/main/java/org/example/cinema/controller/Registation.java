@@ -34,25 +34,15 @@ public class Registation {
 
     @PostMapping("/registration")
     public String addUser(@Valid User user, BindingResult bindingResult, Model model){
-//        Optional<User> userFromDb = userRepo.findUserByUsername(user.getUsername());
-
-        userService.addUser(user);
         if(bindingResult.hasErrors()){
-           //Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
-           //model.mergeAttributes(errors );
-            model.addAttribute("noErrors", true);
+           Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
+           model.mergeAttributes(errors);
            return "registration";
         }
-//
-//       if(userFromDb != null){
-//           model.addAttribute("usernameError", "User exists!");
-//           return "registration";
-//       }
-//
-//        user.setActive(true);
-//        user.setRoles(Collections.singleton(Role.USER));
-//        userRepo.save(user);
-
+        if (!userService.addUser(user)) {
+            model.addAttribute("usernameError", "User exists!");
+            return "registration";
+        }
         return "redirect:/login";
     }
 

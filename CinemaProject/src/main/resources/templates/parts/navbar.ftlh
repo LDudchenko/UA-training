@@ -13,7 +13,9 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item navbar-text">${name}</li>
+        <#if isAuthorization>
+            <li class="nav-item navbar-text"><a href="/${id}">${name}</a></li>
+        </#if>
         <#if isAdmin>
             <li class="nav-item">
                 <div class="dropdown">

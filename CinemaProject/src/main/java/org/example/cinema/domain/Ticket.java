@@ -3,7 +3,7 @@ package org.example.cinema.domain;
 import javax.persistence.*;
 
 @Entity
-public class Ticket {
+public class Ticket{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -12,6 +12,10 @@ public class Ticket {
     private Screening screening;
     private int numberOfrow;
     private int seat;
+
+    @ManyToOne
+    @JoinColumn(name="ticket_id")
+    private User user;
 
     public Long getId() {
         return id;
@@ -43,5 +47,13 @@ public class Ticket {
 
     public void setSeat(int seat) {
         this.seat = seat;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

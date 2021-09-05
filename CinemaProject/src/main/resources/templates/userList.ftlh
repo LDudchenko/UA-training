@@ -1,23 +1,24 @@
 <#import "parts/common.ftlh" as c>
+<#import "/spring.ftl" as spring>
 
 <@c.page>
-    List of users
-    <table>
-        <thead>
+    <h1><@spring.message "user.list"/></h1>
+    <table class="table">
+          <thead>
             <tr>
-                <th>Name</th>
-                <th>Role</th>
+                <th><@spring.message "name"/></th>
+                <th><@spring.message "role"/></th>
                 <th></th>
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <#list users as user>
                 <tr>
                     <td>${user.username}</td>
                     <td><#list user.roles as role>${role}<#sep>, </#list></td>
                     <td><a href="/user/${user.id}">edit</td>
                 </tr>
-            </#list>
-        </tbody>
-    </table>
+             </#list>
+          </tbody>
+        </table>
 </@c.page>

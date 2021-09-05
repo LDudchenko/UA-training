@@ -28,17 +28,26 @@ public class UserService implements UserDetailsService {
 
     public boolean addUser(User user){
         Optional<org.example.cinema.domain.User> userFromDB = userRepo.findUserByUsername(user.getUsername());
-        if(!userFromDB.isPresent()){
+        if(userFromDB.isPresent()) {
             return false;
         }
-
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-        user.setPassword(/*passwordEncoder.encode(*/user.getPassword()/*)*/);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepo.save(user);
 
         return true;
+    }
+
+    public int topUpAccount(User user, int sum){
+        Optional<User> userFromDB = userRepo.findById(user.getId());
+        if(userFromDB.isPresent()){
+            userFromDB.get().setAccount(userFromDB.get().getAccount()+sum);
+            userRepo.save(user);
+            return userFromDB.get().getAccount();
+        }
+        return -1;
     }
 
 }

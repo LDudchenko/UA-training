@@ -18,4 +18,5 @@ public interface ScreeningRepo extends JpaRepository<Screening, Long> {
     Page<Screening> findAllWithScreeningDateTimeAfterByOrderByScreeningDateTime(Pageable pageable,
             @Param("screeningDateTime") LocalDateTime screeningDateTime);
 
+
 }

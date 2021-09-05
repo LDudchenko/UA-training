@@ -41,6 +41,10 @@
                             <label for="screeningDate"><@spring.message "date"/></label>
                             <input type="date" name="screeningDate" class="form-control" value="${date}" min="${startDate}" max="${endDate}">
                         </div>
+                        <div class="form-group mb-2">
+                            <label for="priceOfTicket"><@spring.message "price.of.ticket"/></label>
+                            <input type="text" name="priceOfTicket" class="form-control" value="${screening.priceOfTicket}" required>
+                        </div>
                         <input type="hidden" value="${screening.id}" name="screeningId">
                         <input type="hidden" value="${_csrf.token}" name="_csrf">
                         <button type="submit" class="btn btn-primary"><@spring.message "save"/></button>

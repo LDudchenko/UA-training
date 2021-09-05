@@ -25,12 +25,12 @@
                         <div class="form-group">
                             <label for="username"><@spring.message "username"/></label>
                             <input type="text" class="form-control" id="username" placeholder=<@spring.message "username"/>
-                                   name="username">
+                                   name="username" required>
                         </div>
                         <div class="form-group mb-2">
                             <label for="password"><@spring.message "password"/></label>
                             <input type="password" class="form-control" id="password" placeholder=<@spring.message "password"/>
-                                   name="password">
+                                   name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary"><@spring.message "login"/></button>
                     </form>

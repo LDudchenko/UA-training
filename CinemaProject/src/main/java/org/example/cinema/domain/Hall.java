@@ -1,5 +1,7 @@
 package org.example.cinema.domain;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class Hall {
     private int numOfRows;
     private int numOfSeatsAtRow;
 
-    @OneToMany(mappedBy = "hall")
+    @OneToMany(mappedBy = "hall", cascade = CascadeType.REMOVE)
     private List<Screening> screening;
 
     public Long getId() {

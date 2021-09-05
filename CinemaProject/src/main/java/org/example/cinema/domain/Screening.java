@@ -10,11 +10,11 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "film_id")
     private Film film;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "hall_id")
     private Hall hall;
 
@@ -25,6 +25,8 @@ public class Screening {
 
     private LocalDateTime screeningDateTime;
 
+    private int priceOfTicket;
+
     public int numOfFreeSeats(){
         numOfFreeSeats = hall.getNumOfRows()*hall.getNumOfSeatsAtRow() - tickets.size();
         return numOfFreeSeats;
@@ -33,6 +35,15 @@ public class Screening {
     public boolean isBusySeat(int row, int seat){
         for(Ticket ticket : tickets){
             if(ticket.getNumberOfrow() == row && ticket.getSeat() == seat){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean chosenPlace(List<Ticket> cart, int row, int seat, Screening screening){
+        for(Ticket ticket : cart){
+            if(ticket.getScreening().getId().equals(screening.getId())&&ticket.getNumberOfrow() == row && ticket.getSeat() == seat){
                 return true;
             }
         }
@@ -90,5 +101,13 @@ public class Screening {
 
     public void setNumOfFreeSeats(Integer numOfFreeSeats) {
         this.numOfFreeSeats = numOfFreeSeats;
+    }
+
+    public int getPriceOfTicket() {
+        return priceOfTicket;
+    }
+
+    public void setPriceOfTicket(int priceOfTicket) {
+        this.priceOfTicket = priceOfTicket;
     }
 }

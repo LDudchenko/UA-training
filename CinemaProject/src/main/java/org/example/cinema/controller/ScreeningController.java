@@ -80,8 +80,9 @@ public class ScreeningController {
                                @RequestParam Hall hall,
                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime screeningTime,
                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate screeningDate,
+                               @RequestParam int priceOfTicket,
                                Model model){
-        if(!screeningService.add(film, hall, screeningTime, screeningDate)){
+        if(!screeningService.add(film, hall, screeningTime, screeningDate, priceOfTicket)){
             model.addAttribute("message", "Вже присутній сеанс на цей час!" );
             return "errorTemplate";
         }
@@ -100,8 +101,9 @@ public class ScreeningController {
                                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime screeningTime,
                                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate screeningDate,
                                 @RequestParam("screeningId") Screening screening,
+                                @RequestParam int priceOfTicket,
                                 Model model){
-        if(!screeningService.edit(film, hall, screeningTime, screeningDate, screening)){
+        if(!screeningService.edit(film, hall, screeningTime, screeningDate, screening, priceOfTicket)){
             model.addAttribute("message", "Вже присутній сеанс на цей час!" );
             return "errorTemplate";
         }

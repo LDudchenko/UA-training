@@ -20,6 +20,10 @@
                             <input type="text" class="form-control" name="name_en" required>
                         </div>
                         <div class="form-group mb-2">
+                            <label for="duration"><@spring.message "duration"/></label>
+                            <input type="text" class="form-control" name="duration" required>
+                        </div>
+                        <div class="form-group mb-2">
                             <label for="description"><@spring.message "description.ua"/></label>
                             <textarea name="description" class="form-control" rows="4" cols="50" required>
                             </textarea>

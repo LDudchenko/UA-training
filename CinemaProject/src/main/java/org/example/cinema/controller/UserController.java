@@ -3,6 +3,7 @@ package org.example.cinema.controller;
 import org.example.cinema.domain.Role;
 import org.example.cinema.domain.User;
 import org.example.cinema.repos.UserRepo;
+import org.example.cinema.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,6 +22,9 @@ import java.util.stream.Collectors;
 public class UserController {
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public String userList(Model model){

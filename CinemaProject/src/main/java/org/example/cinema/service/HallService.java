@@ -1,6 +1,7 @@
 package org.example.cinema.service;
 
 import org.example.cinema.domain.Hall;
+import org.example.cinema.domain.Screening;
 import org.example.cinema.repos.HallRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,15 @@ public class HallService {
         return  hallRepo.findAll();
     }
 
-    public void delete(Hall hall){
-        hallRepo.deleteById(hall.getId());
+    public boolean delete(Hall hall){
+        if(hallRepo.existsById(hall.getId())) {
+            for(Screening s:hall.getScreening()){
+                s.setFilm(null);
+            }
+            hallRepo.deleteById(hall.getId());
+            return true;
+        }
+        return false;
     }
 
     public void add(String name, int numOfRows, int numOfSeatsAtRow){

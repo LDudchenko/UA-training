@@ -13,9 +13,9 @@ public class Film {
     private String name_en;
     private String description;
     private String description_en;
-    private String filename;
+    private int durationInMinutes;
 
-    @OneToMany(mappedBy = "film", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "film", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Screening> screenings;
 
     public Film(){ }
@@ -66,11 +66,19 @@ public class Film {
         this.description_en = description_en;
     }
 
-    public String getFilename() {
-        return filename;
+    public List<Screening> getScreenings() {
+        return screenings;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setScreenings(List<Screening> screenings) {
+        this.screenings = screenings;
+    }
+
+    public int getDurationInMinutes() {
+        return durationInMinutes;
+    }
+
+    public void setDurationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
     }
 }
